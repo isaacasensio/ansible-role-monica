@@ -1,0 +1,10 @@
+---
+monica_image: "monica"
+monica_db_image: "mysql:5.7"
+monica_db_user: "monica"
+monica_db_password: "monica"
+monica_db_name: "monica"
+monica_host_config_path: /etc/monica
+monica_host_db_path: /var/lib/monica/mysql
+monica_container_user: monica
+monica_host_port: 24560

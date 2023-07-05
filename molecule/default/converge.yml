@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    monica_app_key: "base64:fdt9SQpJ9rRGrwyFtqWfAD1HerXKFzGPa8VxEPyyhjw="
+
+  roles:
+    - role: iasensio.monica

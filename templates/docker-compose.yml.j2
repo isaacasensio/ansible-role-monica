@@ -1,0 +1,30 @@
+# {{ ansible_managed }}
+---
+version: "3.4"
+
+services:
+  app:
+    image: monica
+    depends_on:
+      - db
+    ports:
+      - {{ monica_host_port }}:80
+    environment:
+      - APP_KEY={{ monica_app_key }}
+      - DB_HOST=monica-db
+      - DB_USERNAME={{ monica_db_user }}
+      - DB_PASSWORD={{ monica_db_password }}
+    volumes:
+      - {{ monica_host_config_path }}/www:/var/www/html/storage
+    restart: unless-stopped
+
+  monica-db:
+    image: {{ monica_db_image }}
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_DATABASE={{ monica_db_name }}
+      - MYSQL_USER={{ monica_db_user }}
+      - MYSQL_PASSWORD={{ monica_db_password }}
+    volumes:
+      - {{ monica_host_db_path }}/data:/var/lib/mysql
+    restart: unless-stopped
