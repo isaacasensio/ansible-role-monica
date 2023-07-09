@@ -17,6 +17,10 @@ services:
     volumes:
       - {{ monica_host_config_path }}/www:/var/www/html/storage
     restart: unless-stopped
+{% if monica_network_name is defined and monica_network_name != '' %}
+    networks:
+      - {{ monica_network_name }}
+{% endif %}
 
   monica-db:
     image: {{ monica_db_image }}
@@ -28,3 +32,13 @@ services:
     volumes:
       - {{ monica_host_db_path }}/data:/var/lib/mysql
     restart: unless-stopped
+{% if monica_network_name is defined and monica_network_name != '' %}
+    networks:
+      - {{ monica_network_name }}
+{% endif %}
+
+{% if monica_network_name is defined and monica_network_name != '' %}
+networks:
+  {{ monica_network_name }}:
+    external: true
+{% endif %}
