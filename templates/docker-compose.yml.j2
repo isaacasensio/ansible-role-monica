@@ -10,6 +10,7 @@ services:
     ports:
       - {{ monica_host_port }}:80
     environment:
+      - APP_ENV=production
       - APP_KEY={{ monica_app_key }}
       - APP_URL={{ monica_app_url }}
       - DB_HOST=monica-db
