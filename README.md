@@ -46,6 +46,10 @@ Monica container username
 monica_host_port: 24560
 ```
 Monica host port
+```
+monica_app_url: ""
+```
+Monica application URL
 
 Dependencies
 ------------

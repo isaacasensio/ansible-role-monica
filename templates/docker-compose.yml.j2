@@ -11,6 +11,7 @@ services:
       - {{ monica_host_port }}:80
     environment:
       - APP_KEY={{ monica_app_key }}
+      - APP_URL={{ monica_app_url }}
       - DB_HOST=monica-db
       - DB_USERNAME={{ monica_db_user }}
       - DB_PASSWORD={{ monica_db_password }}

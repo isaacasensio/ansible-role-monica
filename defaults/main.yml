@@ -9,3 +9,4 @@ monica_host_db_path: /var/lib/monica/mysql
 monica_container_user: monica
 monica_host_port: 24560
 monica_network_name: ""
+monica_app_url: ""
